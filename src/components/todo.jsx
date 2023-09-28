@@ -28,9 +28,7 @@ const TodoComponent = ({todo}) =>{
             tag = new Tag({
                 name: newTagName
             })
-        }
-
-        
+        }       
         const savedTag = await DataStore.save(tag)
         dataContext.setTags(prevState=>[...prevState, tag])
 
