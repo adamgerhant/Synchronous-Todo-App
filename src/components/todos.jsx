@@ -54,6 +54,14 @@ const Todos = () =>{
             </div>
         )
     }
+    else{
+      return (
+        <div className='w-[600px] flex flex-col items-center my-10 overflow-hidden border-y border-r border-gray-300 h-[800px]'>
+            <p className='text-3xl bg-gray-100 w-full text-let px-4 py-3 border-b border-gray-300 '>Todos</p>
+            
+        </div>
+      )
+    }
 }
 
 export default Todos

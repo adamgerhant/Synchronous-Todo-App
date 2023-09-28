@@ -24,13 +24,17 @@ const TodoComponent = ({todo}) =>{
       
     const addTag = async (todo) =>{
         let tag = dataContext.tags.find(tag=>tag.name==newTagName)
+        let savedTag
         if(!tag){
             tag = new Tag({
                 name: newTagName
             })
+            savedTag = await DataStore.save(tag)
+            dataContext.setTags(prevState=>[...prevState, tag])
         }       
-        const savedTag = await DataStore.save(tag)
-        dataContext.setTags(prevState=>[...prevState, tag])
+        else{
+            savedTag = await DataStore.save(tag)
+        }
 
         const newTodoTag = new TodoTags({
             todo: todo,
